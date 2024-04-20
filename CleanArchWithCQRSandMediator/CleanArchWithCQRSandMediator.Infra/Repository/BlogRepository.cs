@@ -52,7 +52,6 @@ namespace CleanArchWithCQRSandMediator.Infra.Repository
             return await _blogDbContext.Blogs
                 .Where(x => x.Id == id)
                 .ExecuteUpdateAsync(setters => setters
-                    .SetProperty(x => x.Id, blog.Id)
                     .SetProperty(x => x.Name, blog.Name)
                     .SetProperty(x => x.Author, blog.Author)
                     .SetProperty(x => x.Description, blog.Description)
