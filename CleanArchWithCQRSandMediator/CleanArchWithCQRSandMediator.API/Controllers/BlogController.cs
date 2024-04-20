@@ -19,25 +19,25 @@ namespace CleanArchWithCQRSandMediator.API.Controllers
             return Ok(blogs);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateBlogCommand command)
+        {
+            var blog = await Mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new {id = blog.Id}, blog); 
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var blog = await Mediator.Send(new GetBlogByIdQuery() { BlogId = id});
+            var blog = await Mediator.Send(new GetBlogByIdQuery() { BlogId = id });
 
-            if(blog == null)
+            if (blog == null)
             {
                 //return NotFound();
                 return Problem(statusCode: StatusCodes.Status404NotFound, title: "Không tìm thấy Blog.");
             }
 
             return Ok(blog);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateBlogCommand command)
-        {
-            var blog = await Mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new {id = blog.Id}, blog); 
         }
 
         [HttpPut("{id}")]
