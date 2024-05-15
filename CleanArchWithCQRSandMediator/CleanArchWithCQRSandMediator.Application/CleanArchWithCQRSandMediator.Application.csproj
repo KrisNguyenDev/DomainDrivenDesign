@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Comments\Commands\CreateComment\" />
+    <Folder Include="Comments\Commands\DeleteComment\" />
+    <Folder Include="Comments\Commands\Updatecomment\" />
+    <Folder Include="Comments\Queries\GetCommentByBlogId\" />
+    <Folder Include="Comments\Queries\GetComment\" />
     <Folder Include="Common\Exceptions\" />
   </ItemGroup>
 

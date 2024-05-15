@@ -16,5 +16,6 @@ namespace CleanArchWithCQRSandMediator.Infra.Data
         }
 
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

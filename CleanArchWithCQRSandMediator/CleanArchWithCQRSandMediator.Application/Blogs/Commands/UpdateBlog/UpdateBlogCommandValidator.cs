@@ -14,11 +14,11 @@ namespace CleanArchWithCQRSandMediator.Application.Blogs.Commands.UpdateBlog
             RuleFor(v => v.Id)
                 .NotEmpty().WithMessage("Id is required.");
             RuleFor(v => v.Name)
-                .NotEmpty().WithMessage("Id is Name.");
+                .NotEmpty().WithMessage("Name is required.");
             RuleFor(v => v.Description)
-                .NotEmpty().WithMessage("Id is Description.");
+                .NotEmpty().WithMessage("Description is required.");
             RuleFor(v => v.Author)
-                .NotEmpty().WithMessage("Id is Author.");
+                .NotEmpty().WithMessage("Author is required.");
         }
     }
 }
